@@ -1,5 +1,4 @@
 [
-{"username": "guilherme.zanelato@4linux.com.br", "senha": "1234gui", "_id": {"$oid": "690ba35b35b06ffaa7c40090"}},
 {"username": "guilherme.zanelato@4linux.com.br", "senha": "1234gu", "_id": {"$oid": "690ba37235b06ffaa7c40091"}},
 {"username": "guilherme.zanelato@4linux.com.br", "senha": "1234gu", "_id": {"$oid": "690ba3bc35b06ffaa7c40092"}},
 {"username": "ana.clara@4linux.com.br", "nome": "Ana Clara Oliveira", "senha": "1234ana", "_id": {"$oid": "690ba8a235e7dd5a1e5ecfce"}},
