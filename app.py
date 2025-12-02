@@ -80,8 +80,3 @@ def outra_funcionalidade():
 if __name__ == '__main__':
     app.run(debug=True)
 
-client = montydb.MontyClient()
-db = client.get_database('pessoa')
-reg = db.users.find({'username': 'guilherme.zanelato@4linux.com.br'})
-reg.next()
- 
