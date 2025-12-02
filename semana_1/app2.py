@@ -1,4 +1,4 @@
-import flask
+import semana_1.flask as flask
 import montydb
 
 app = flask.Flask(__name__)
