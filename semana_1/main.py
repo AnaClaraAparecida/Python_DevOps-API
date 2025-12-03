@@ -1,8 +1,11 @@
-import semana_1.flask as flask 
+from blueprint.users import blueprint as users
+import flask 
 import montydb
 
 
 app = flask.Flask(__name__)
+
+app.register_blueprint(users)
 
 def get_conn(database):
     client = montydb.MontyClient()
@@ -67,4 +70,3 @@ def outra_funcionalidade():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
