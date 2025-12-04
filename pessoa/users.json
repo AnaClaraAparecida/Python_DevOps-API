@@ -2,5 +2,6 @@
 {"username": "guilherme.zanelato@4linux.com.br", "senha": "1234gu", "_id": {"$oid": "690ba37235b06ffaa7c40091"}},
 {"username": "guilherme.zanelato@4linux.com.br", "senha": "1234gu", "_id": {"$oid": "690ba3bc35b06ffaa7c40092"}},
 {"username": "ana.clara@4linux.com.br", "nome": "Ana Clara Oliveira", "senha": "1234ana", "_id": {"$oid": "690ba8a235e7dd5a1e5ecfce"}},
-{"username": "ana.clara@4linux.com.br", "nome": "Ana Clara Oliveira", "senha": "1234ana", "_id": {"$oid": "6911e352e0081019ed1ad11c"}}
+{"username": "ana.clara@4linux.com.br", "nome": "Ana Clara Oliveira", "senha": "1234ana", "_id": {"$oid": "6911e352e0081019ed1ad11c"}},
+{"username": "Julio Ballot", "senha": "123qwe123", "nome": "Julio Ballot", "_id": {"$oid": "69319b258cc51df22c48a0f6"}}
 ]

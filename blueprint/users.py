@@ -14,5 +14,5 @@ def get_users():
             'nome': user.get('nome')
         } for user in db.users.find()
     ]
-    return render_template("users.html")
+    return render_template("users.html", context=users)
 
