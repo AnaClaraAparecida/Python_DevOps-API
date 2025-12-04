@@ -1,7 +1,7 @@
 from Flask import Blueprint, jsonify
 from config.database import get_conn
 
-blueprint = Blueprint("users", ["GET"])
+blueprint = Blueprint("users", __name__])
 
 @blueprint.route("/users", methods=["GET"])
 def get_users():
@@ -14,5 +14,5 @@ def get_users():
             'nome': user.get('nome')
         } for user in db.users.find()
     ]
-    return flask.jsonify(users)
+    return render_template("users.html")
 
