@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "scripts.html" as macros %}
+
+{% block title %} teste Jinja2 {% endblock %}
+
+{% block content %}
+
+<p> ola do Jinja2 </p>
+
+{{ macros.teste() }}
+{{ macros.outro_teste() }}
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "footer.html" %}
+{% endblock %}
