@@ -1,5 +1,10 @@
 from flask import Blueprint, jsonify
-from config.database import get_conn
+from blueprint.database import get_conn
+import montydb
+
+def get_conn(database):
+    client = montydb.MontyClient()
+    return client.get_database(database )
 
 blueprint = Blueprint("users", __name__)
 
