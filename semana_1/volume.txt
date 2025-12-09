@@ -1,0 +1,92 @@
+# Saindo da pasta img_docker
+(env) ana-clara@ana-clara:~/Python_DevOps&API/img_docker$ cd ..
+
+# Criando volume chamado "db"
+(env) ana-clara@ana-clara:~/Python_DevOps&API$ docker volume create db 
+# db
+
+# Listando volumes existentes
+(env) ana-clara@ana-clara:~/Python_DevOps&API$ docker volume ls 
+# DRIVER    VOLUME NAME
+# local     7e63d98f1f6ea6346be1888fae7e1a785d33e71e94554dc4c7f252772185157f
+# local     506bec167c5dda3c953ada40ce77e7f13be2af882033c4fbcd5ba206cde433f8
+# local     8157242b6aa38d648087b6e3a1f0b28b02fe3736d38a76b4a1cc091f0c2aeacf
+# local     aa3bf9b7cf1ee3a347b6bbb4720ca4a8836d3aa8d6477fcc1aaa5dfac980dca9
+# local     db
+
+# Entrando no container mongodb e acessando o mongosh
+(env) ana-clara@ana-clara:~/Python_DevOps&API$ docker exec -it mongodb bash 
+root@c073341a7f4d:/# mongosh
+# Connecting to: mongodb://127.0.0.1:27017
+# Using MongoDB: 8.2.2
+# Using Mongosh: 2.5.9
+
+# Listando bancos
+test> show dbs 
+# admin   40.00 KiB
+# config  48.00 KiB
+# local   72.00 KiB
+# pessoa  40.00 KiB
+
+# Usando banco pessoa
+test> use pessoa 
+# switched to db pessoa
+
+# Inserindo documento
+pessoa> db.users.insertOne({'mensagem':'teste de volume'})
+# {
+#   acknowledged: true,
+#   insertedId: ObjectId('69383e2c2deb0a65d09dc29d')
+# }
+
+# Consultando documentos
+pessoa> db.users.find()
+# [
+#   { _id: ObjectId('6936df10889c997a7d9dc29d'), nome: 'Container Mongo' },
+#   { _id: ObjectId('69383e2c2deb0a65d09dc29d'), mensagem: 'teste de volume' }
+# ]
+
+# Saindo do mongosh e do container
+pessoa> exit 
+root@c073341a7f4d:/# exit 
+# exit
+
+# Listando arquivos da pasta
+(env) ana-clara@ana-clara:~/Python_DevOps&API$ ls 
+# arquivo_saida.csv  blueprint  env  img_docker  insert.sh  monty.storage.cfg  
+# pessoa  pessoas  prj  __pycache__  semana_1  templates  venv
+
+# Parando container mongodb
+(env) ana-clara@ana-clara:~/Python_DevOps&API$ docker container stop mongodb 
+# mongodb
+
+# Removendo container mongodb
+(env) ana-clara@ana-clara:~/Python_DevOps&API$ docker container rm mongodb 
+# mongodb
+
+# Listando containers ativos
+(env) ana-clara@ana-clara:~/Python_DevOps&API$ docker container ls 
+# CONTAINER ID   IMAGE      COMMAND                  CREATED       STATUS       PORTS      NAMES
+# c28e1eb8a110   flaskapp   "/bin/sh -c 'flask r…"   2 hours ago   Up 2 hours   5000/tcp   flaskapp_1
+
+# Removendo volume db
+(env) ana-clara@ana-clara:~/Python_DevOps&API$ docker volume rm db 
+# db
+
+# Listando volumes novamente
+(env) ana-clara@ana-clara:~/Python_DevOps&API$ docker volume ls 
+# DRIVER    VOLUME NAME
+# local     7e63d98f1f6ea6346be1888fae7e1a785d33e71e94554dc4c7f252772185157f
+# local     506bec167c5dda3c953ada40ce77e7f13be2af882033c4fbcd5ba206cde433f8
+# local     8157242b6aa38d648087b6e3a1f0b28b02fe3736d38a76b4a1cc091f0c2aeacf
+# local     aa3bf9b7cf1ee3a347b6bbb4720ca4a8836d3aa8d6477fcc1aaa5dfac980dca9
+
+# Logs do container flaskapp_1
+(env) ana-clara@ana-clara:~/Python_DevOps&API$ docker container logs flaskapp_1
+# * Debug mode: off
+# WARNING: This is a development server. Do not use it in a production deployment.
+# * Running on all addresses (0.0.0.0)
+# * Running on http://127.0.0.1:5000
+# * Running on http://172.17.0.3:5000
+# Press CTRL+C to quit
+# 172.17.0.1 - - [09/Dec/2025 13:34:35] "GET / HTTP/1.1" 200 -
