@@ -1,0 +1,28 @@
+version: '3'
+services: 
+  flask_app:
+    image: 'flaskapp_alpine'
+    ports:
+      - 5000
+    volumes:
+      - "$PWD:/app"
+    networks:
+      session:
+        ipv4_address: '200.100.50.10'
+
+  redis:
+    image: 'redis:alpine'
+    ports:
+      - 6379 
+    networks:
+      session:
+        ipv4_address: '200.100.50.20'
+
+networks:
+  session:
+    driver: bridge
+    ipam: 
+      config:
+        - subnet: "200.100.50.0/24"
+
+
