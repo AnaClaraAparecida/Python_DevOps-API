@@ -1,0 +1,61 @@
+# Iniciando o container já existente
+docker start flaskapp_1
+# flaskapp_1
+
+# Inspecionando o container flaskapp_1
+docker container inspect flaskapp_1
+# [
+#   {
+#     "Id": "c28e1eb8a110c8bff97040ef88a2fa6b0e901fd3762895815399aff0a0950afd",
+#     "Created": "2025-12-09T13:32:39.616207786Z",
+#     "Path": "/bin/sh",
+#     "Args": [
+#       "-c",
+#       "flask run -h '0.0.0.0'"
+#     ],
+#     "State": {
+#       "Status": "running",
+#       "Running": true,
+#       "Pid": 34251,
+#       "ExitCode": 0,
+#       "StartedAt": "2025-12-09T13:32:39.646999475Z"
+#     },
+#     "Name": "/flaskapp_1",
+#     "Config": {
+#       "Image": "flaskapp",
+#       "WorkingDir": "/app",
+#       "Cmd": [
+#         "/bin/sh",
+#         "-c",
+#         "flask run -h '0.0.0.0'"
+#       ]
+#     },
+#     "NetworkSettings": {
+#       "IPAddress": "172.17.0.3",
+#       "Gateway": "172.17.0.1"
+#     }
+#   }
+# ]
+
+# Removendo o container flaskapp_1
+docker container rm --force flaskapp_1
+# flaskapp_1
+
+# Listando redes existentes
+docker network ls
+# NETWORK ID     NAME      DRIVER    SCOPE
+# 904b2c862949   bridge    bridge    local
+# d085cf13d0d3   host      host      local
+# e3d4c42a95ba   none      null      local
+
+# Criando uma nova rede chamada nova_rede
+docker network create --driver=bridge --subnet=200.100.0.0/16 nova_rede
+# db28b8c5bbe952cd5a1659d36fb595b3630d826549648409a9a428289fa7b564
+
+# Listando redes novamente
+docker network ls
+# NETWORK ID     NAME        DRIVER    SCOPE
+# 904b2c862949   bridge      bridge    local
+# d085cf13d0d3   host        host      local
+# e3d4c42a95ba   none        null      local
+# db28b8c5bbe9   nova_rede   bridge    local
