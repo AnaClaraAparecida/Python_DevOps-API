@@ -1,9 +1,16 @@
 from functools import wraps 
+from flask_session import \session
 
 import flask 
+import redis
 
 app = flask.Flask(__name__)
 app.config['SECRET_KEY'] = "!@#%FACEBUGG"
+app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_REDIS'] = redis.from_url(
+            'redis://200.100.50.20:6379'
+        )
+server_session = Session(app)
 
 def login_required(function):
     @wraps(function)
