@@ -18,10 +18,24 @@ def jwt_required(fn):
                         JWT_SECRET,
                         algorithms=['HS256']
             )
-        except Exception as e:
-            return flask.jsonify({
+        except jwt.exceptions.ExpiredSignatureError as e:
+            return flask.jsonify({ # alvo de log 
                     'NOK' : 'Token Inválido',
+                    'message' : 'Por favor solicitar um novo token: http: https//localhost'
                 })
+        
+        except jwt.exceptions.ExpiredSignatureError as e:
+            return flask.jsonify({
+                    'NOK' : 'Assinatura do Token invalida',
+                    'message' : 'Por favor solicitar um novo token: http: https//localhost'
+                }) 
+
+        except jwt.exceptions.invalidTokenError as e:
+            return flask.jsonify({
+                    'NOK' : 'Erro ao validar o token',
+                    'message' : 'Por favor solicitar um novo token: http: https//localhost'
+                }) 
+
         return fn(*args, **kwargs)
     return wrappend
 
