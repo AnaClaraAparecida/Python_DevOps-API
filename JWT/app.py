@@ -17,6 +17,7 @@ def jwt_required(fn):
                         token,
                         JWT_SECRET,
                         algorithms=['HS256']
+            )
         except Exception as e:
             return flask.jsonify({
                     'NOK' : 'Token Inválido',
@@ -26,7 +27,7 @@ def jwt_required(fn):
 
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
-    if flask.request.methods == 'POST':
+    if flask.request.method == 'POST':
         # validaçao do formulario....
         username = flask.request.form.get('username')
         password = flask.request.form.get('passwd')
@@ -43,7 +44,7 @@ def login():
                     },
                     JWT_SECRET,
                     algorithm='HS256')
-            response = requests.get('https://localhost:5000/protegido', 
+            response = flask.request.get('https://localhost:5000/protegido', 
                         headers= {'Authorization' : f'Bearer {token}'})
             return flask.jsonify(response.json())
 
