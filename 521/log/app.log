@@ -1,0 +1,4 @@
+2025-12-17 16:44:18,822 - __main__ - WARNING : entrada incorreta - n1:10, n2:2
+2025-12-17 16:48:36,518 - __main__ - WARNING : entrada incorreta - n1:10, n2:2
+2025-12-17 16:48:49,514 - __main__ - WARNING : entrada incorreta - n1:10, n2:2
+2025-12-17 16:48:53,470 - __main__ - WARNING : tentativa de divisao por zero - n1:10, n2:0

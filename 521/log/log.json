@@ -1,0 +1,6 @@
+{"asctime": "2025-12-17 17:14:17,410", "name": "flask_app", "levelname": "WARNING", "message": " __main__: Mensagem de WARNING"}
+{"asctime": "2025-12-17 17:14:17,410", "name": "flask_app", "levelname": "ERROR", "message": " __main__: Mensagem de ERROR"}
+{"asctime": "2025-12-17 17:14:17,410", "name": "flask_app", "levelname": "CRITICAL", "message": " __main__: Mensagem de CRITICAL"}
+{"asctime": "2025-12-17 17:14:51,749", "name": "flask_app", "levelname": "WARNING", "message": " __main__: Mensagem de WARNING"}
+{"asctime": "2025-12-17 17:14:51,749", "name": "flask_app", "levelname": "ERROR", "message": " __main__: Mensagem de ERROR"}
+{"asctime": "2025-12-17 17:14:51,749", "name": "flask_app", "levelname": "CRITICAL", "message": " __main__: Mensagem de CRITICAL"}
